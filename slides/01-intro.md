@@ -2,8 +2,6 @@
 title: Introduction
 author: Christophe Lalanne
 date: Fall 2017
-mainfont: Fira Sans
-fontsize: 12pt
 ---
 
 # Overview
@@ -47,6 +45,7 @@ You can fork the repository using `http` or `ssh` (`git@bitbucket.org:chlalanne/
 
 - [R][R] and [Rstudio][Rstudio]
 - Some R packages (and their dependencies which shall be installed automatically): [tidyverse][tidyverse], [ggplot2][ggplot2], [data.table][data.table], [leaflet][leaflet], ... 
+- "R for Data Science" book [@wickham-2017-r-data-scien], (maybe) "Advanced R" [@wickham-2014-advan-r]
 
 The following command will download required packages for you:
 
@@ -54,9 +53,9 @@ The following command will download required packages for you:
 source("get_packages.R")
 ```
 
-Eventually, you may want to install Git on your local machine, as well as a good text editor (other than Notepad).[^fn]
+Eventually, you may want to install Git on your local machine, as well as a good text editor (other than Notepad).[^1]
 
-[^fn]: I will not be of any help in case you are running Windows on your computer.
+[^1]: I will not be of any help in case you are running Windows on your computer.[^2]
 
 [R]: http://cran.r-project.org
 [Rstudio]: http://rstudio.com
@@ -64,3 +63,7 @@ Eventually, you may want to install Git on your local machine, as well as a good
 [ggplot2]: http://ggplot2.org
 [data.table]: https://github.com/Rdatatable/data.table/wiki
 [leaflet]: https://rstudio.github.io/leaflet/
+
+
+## References
+

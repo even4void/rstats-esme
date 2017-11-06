@@ -1,0 +1,9 @@
+---
+mainfont: Fira Sans
+fontsize: 12pt
+classoption: svgnames
+citecolor: LightSlateGrey
+urlcolor: SlateGrey
+bibliography: /Users/chl/Documents/Papers/references.bib
+csl: chicago-author-date.csl
+---
