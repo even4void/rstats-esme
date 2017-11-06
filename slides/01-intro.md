@@ -1,12 +1,18 @@
-% rstats-esme: Introduction
-% Christophe Lalanne
-% Fall 2017
+---
+title: Introduction
+author: Christophe Lalanne
+date: Fall 2017
+mainfont: Fira Sans
+fontsize: 12pt
+---
 
 # Overview
 
 ## Organization
 
 Lectures are scheduled each Tuesday, starting November, 7th. 
+
+This will be a mix of R programming and statistical modeling, ranging from data crunching to data mining and machine learning.
 
 - Nov, 7: R basics
 - Nov, 14: Graphics with `ggplot2`
@@ -35,4 +41,26 @@ Combined use of practicals (20%), intermediate project (40%) and final assessmen
 Ressources are available in the following Git-versioned repository:  
 <center> <https://bitbucket.org/chlalanne/rstats-esme> </center>
 
-You can fork the repository (`git@bitbucket.org:chlalanne/rstats-esme.git`, using `http` or `ssh`) and keep posted with `git pull`. You can submit PRs if you like but don't push anything in the main repository. 
+You can fork the repository using `http` or `ssh` (`git@bitbucket.org:chlalanne/rstats-esme.git`) and keep posted with `git pull`. You can submit PRs if you like but please, don't push anything in the main repository. 
+
+## Additional tools
+
+- [R][R] and [Rstudio][Rstudio]
+- Some R packages (and their dependencies which shall be installed automatically): [tidyverse][tidyverse], [ggplot2][ggplot2], [data.table][data.table], [leaflet][leaflet], ... 
+
+The following command will download required packages for you:
+
+```r
+source("get_packages.R")
+```
+
+Eventually, you may want to install Git on your local machine, as well as a good text editor (other than Notepad).[^fn]
+
+[^fn]: I will not be of any help in case you are running Windows on your computer.
+
+[R]: http://cran.r-project.org
+[Rstudio]: http://rstudio.com
+[tidyverse]: http://tidyverse.org
+[ggplot2]: http://ggplot2.org
+[data.table]: https://github.com/Rdatatable/data.table/wiki
+[leaflet]: https://rstudio.github.io/leaflet/
