@@ -373,7 +373,7 @@ z <- data.frame(alpha = x, beta = y)
 ![Représentation schématique d'un data frame](../assets/img_dataframe.png){ width=50% }
 
 
-# Structures de contrôle
+# Structures de contrôle et programmation R
 
 
 ## Branchement conditionnel (If-else)
@@ -407,6 +407,55 @@ En plus simple :
 
 ```r
 cumsum(1:10)
+```
+
+## Commandes *apply
+
+Souvent, on peut exploiter les fonctions de la famille `*apply()` :
+
+```r
+val <- c(2, 8, 3, 4)
+f <- function(x) x+2
+res <- numeric(4)
+for (i in 1:4) res[i] <- f(val[i])
+```
+
+En plus simple :
+
+```r
+sapply(val, f)
+```
+
+## Fonctions
+
+Comme dans d'autres langages de programmation, une fonction accepte des arguments.
+
+    f <- function(x, y = NULL, ...) {
+      ...
+      return(val)
+    }
+
+```r
+> args(sapply)
+function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+NULL
+```
+
+## Application
+
+```r
+f <- function(x) mean(x)
+v <- sample(1:100, 10)
+f(v)
+```
+
+Ajout de paramètres avec valeur par défaut :
+
+```r
+f <- function(x, na.rm = FALSE) mean(x, na.rm = na.rm)
+v[sample(1:length(v), 5)] <- NA
+f(v)  ## na.rm = FALSE
+f(v, na.rm = TRUE)
 ```
 
 
