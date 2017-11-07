@@ -5,7 +5,7 @@ TARGET := $(patsubst %.md,%.pdf,$(wildcard *.md))
 all: $(TARGET)
 
 %.pdf : %.md
-	pandoc -s --pdf-engine=lualatex --filter pandoc-citeproc --highlight-style tango -t beamer $^ header.yaml -o $@
+	pandoc -s --pdf-engine=lualatex --filter pandoc-citeproc --highlight-style tango --toc -t beamer $^ header.yaml -o $@
 
 clean:
 	rm -f $(TARGET)
