@@ -20,12 +20,12 @@ De nombreux packages, disponibles sur le site [CRAN][cran], fournissent des exte
 
 <http://rstudio.com>
 
-![The RStudio "IDE"](../assets/img_rstudio.png){ width=100% }
+![The RStudio "IDE"](../assets/img_rstudio.png)
 
 
 ## Data Science
 
-![The Data Science Venn Diagram](../assets/img_datascience.png){ width=50% }
+![The Data Science Venn Diagram](../assets/img_datascience.png)
 
 <http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram>
 
@@ -168,7 +168,7 @@ g <- c(T,F,T,T,F)
 
 ## Illustration
 
-![Représentation schématique d'un vecteur](../assets/img_vectors.png){ width=50% }
+![Représentation schématique d'un vecteur](../assets/img_vectors.png)
 
 Sélection indexée des éléments de `x` :
 
@@ -332,7 +332,7 @@ rbind(x, y)
 
 ## Illustration
 
-![Représentation schématique d'une matrice](../assets/img_rbind.png){ width=50% }
+![Représentation schématique d'une matrice](../assets/img_rbind.png)
 
 ## Liste
 
@@ -370,7 +370,7 @@ z <- data.frame(alpha = x, beta = y)
 
 ## Illustration
 
-![Représentation schématique d'un data frame](../assets/img_dataframe.png){ width=50% }
+![Représentation schématique d'un data frame](../assets/img_dataframe.png)
 
 
 # Structures de contrôle et programmation R
