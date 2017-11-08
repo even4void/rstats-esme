@@ -14,11 +14,11 @@ This will be a mix of R programming and statistical modeling, ranging from data 
 
 - Nov, 7: R basics
 - Nov, 14: Graphics with `ggplot2`
-- Nov, 15*: R dplyr, database connection
-- Nov, 28: Statistical modeling in R
-- Nov, 5: 
-- Nov, 12: Reporting with R Markdown and Shiny
-- Nov, 19: Final project
+- Nov, 15*: R dplyr and data.table 
+- Nov, 28: R and database, data mining
+- Dec, 5: Statistical modeling in R
+- Dec, 12: Reporting with R Markdown and Shiny
+- Dec, 19: Final project
 
 ## Synopsis
 
@@ -33,7 +33,7 @@ This will be a mix of R programming and statistical modeling, ranging from data 
 Ressources are available in the following Git-versioned repository:  
 <center> <https://bitbucket.org/chlalanne/rstats-esme> </center>
 
-You can fork the repository using `http` or `ssh` (`git@bitbucket.org:chlalanne/rstats-esme.git`) and keep posted with `git pull`. You can submit PRs if you like but please, don't push anything in the main repository. 
+You can fork the repository using `http` or `ssh` (`git@bitbucket.org:chlalanne/rstats-esme.git`) and keep posted with `git pull`. You can submit Issues or PRs if you like.
 
 ## Additional tools
 
