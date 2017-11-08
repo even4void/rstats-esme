@@ -2,7 +2,7 @@
 
 You landed on the README page...
 
-This repository included various pieces of R code and Markdown documents that will be used during the course. Of particular interest, there are the [slides][slides] and [code][code] that hold relevant parts of the on-line course. Slides are available in PDF and Markdown format. The latter can be displayed on-line on Bitbucket.
+This repository included various pieces of R code and Markdown documents that will be used during the course. Of particular interest, there are the [slides][slides] and [code][code] that hold relevant parts of the on-line course. Slides are available in PDF and Markdown format. The latter can be displayed on-line on Bitbucket. The PDF slides are rendered using [Pandoc][pandoc] + LaTeX (see the `Makefile`).
 
 You can clone this repository on your personal computer using, e.g.:
 
@@ -10,7 +10,7 @@ You can clone this repository on your personal computer using, e.g.:
 
 [slides]: https://bitbucket.org/chlalanne/rstats-esme/src/master/slides
 [code]: https://bitbucket.org/chlalanne/rstats-esme/src/master/code
-
+[pandoc]: https://pandoc.org
 
 ## Syllabus
 
@@ -24,9 +24,13 @@ Here is a temptative schedule, but see the [course overview][overview]:
 6. Dec, 12: Reporting with R Markdown and Shiny
 7. Dec, 19: Final project
 
-All session will run for 3 hours, including a 1-hour hand-on practical. Solutions will be available in the [code][code] folder. Additional lectures will be listed below.
+All session will run for 3 hours, including a 1-hour hand-on practical. Solutions will be available in the [code][code] folder. Additional lectures are listed below.
 
-- Nov, 14-15: ISLR §2.1 and R4DS §3
+- Nov, 14-15: ISLR §2.1 and R4DS §3 and §7
+- Nov, 28: ISLR §10.2-10.3 and R4DS §13
+- Dec, 5: ISLR §3.6, 5.1-5.2 and R4DS §23-25
+- Dec, 12: R4DS §27
+- Dec, 19: ISLR §8.2, 9.2-9.3
 
 R4DS = [R for Data Science][r4ds]
 ISLR = [Introduction to Statistical Learning][islr]
@@ -38,12 +42,10 @@ ISLR = [Introduction to Statistical Learning][islr]
 ## Software
 
 - [R][cran] and [Rstudio][rstudio]
-- a decent text editor (Emacs, Vi(m), Textmate*, Sublime, Atom, VS Code)
+- a decent text editor (Emacs, Vi(m), Sublime, Atom, VS Code)
 - [Git][git]
 
 
 [cran]: http://cran.r-project.org
 [rstudio]: http://rstudio.com
 [git]: https://git-scm.com
-
-* Mac only
