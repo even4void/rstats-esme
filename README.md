@@ -38,7 +38,7 @@ ISLR = [Introduction to Statistical Learning][islr]
 ## Software
 
 - [R][cran] and [Rstudio][rstudio]
-- a decent text editor (Emacs, Vi(m), Textmate<sup>*</sup>, Sublime, Atom, VS Code)
+- a decent text editor (Emacs, Vi(m), Textmate*, Sublime, Atom, VS Code)
 - [Git][git]
 
 
@@ -46,5 +46,4 @@ ISLR = [Introduction to Statistical Learning][islr]
 [rstudio]: http://rstudio.com
 [git]: https://git-scm.com
 
-
-<sup>*</sup> Mac only
+* Mac only
