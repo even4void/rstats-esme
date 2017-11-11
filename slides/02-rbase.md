@@ -166,7 +166,7 @@ idx <- c(1,3,4)
 g <- c(T,F,T,T,F)
 ```
 
-## Illustration
+##  
 
 ![Représentation schématique d'un vecteur](../assets/img_vectors.png)
 
@@ -196,7 +196,7 @@ rank(rev(xs))
 
 ## Nombres aléatoires
 
-Dès que l'on manipule des nombres aléatoires, il est nécessaire de fixer la graine du générateur congruentiel, autrement on ne pourra pas reproduire la séquence (e.g., cas des simulations). 
+Dès que l'on manipule des nombres aléatoires, il est nécessaire de fixer la graine du générateur congruentiel (`set.seed()`), autrement on ne pourra pas reproduire la séquence (e.g., cas des simulations). 
 
 ```r
 > runif(4)
@@ -213,109 +213,68 @@ Dès que l'on manipule des nombres aléatoires, il est nécessaire de fixer la g
     [1] 0.37219838 0.04382482 0.70968402 0.65769040
 
 
-# Objets spécifiques R
+## Lois de probabilité et distributions
 
-## Codage des données manquantes
+    r* random variate 
+    q* quantile
+    p* probability
+    d* density
+    
+    
+- *norm : loi normale $\mathcal{N}(\mu, \sigma)$, paramètres `mu =` et `sd =`
+- *binom : loi binomiale $\mathcal{B}(n, p)$, paramètres `n =` et `prob =`
+- *unif : loi uniforme $\mathcal{U}(a, b)$, paramètres `min =` et `max =`
 
-Le symbole `NA` est utilisé pour désigner une donnée manquante (différent d'une valeur non représentable en machine telle que `-Inf`).
+Exemple : `rbinom(n = 10, size = 1, prob = 0.5)`
 
-```r
-x <- 1:10
-x[5] <- NA
-is.na(x)
-sum(is.na(x))
-```
+# Génération de séquences
 
-## Représentation des données catégorielles
-
-R utilise le terme "factor" pour représenter une variable catégorielle possédant plusieurs modalités (ou niveaux) mutuellement exclusives. 
-
-Hors cas des variables binaires (0/1), l'utilisation de facteur est recommandée car de nombreuses fonctions de R ont un comportement spécifique en présence de facteurs. 
-
-Ceux-ci sont également utiles dans les notations par formules, les graphiques, les procédures d'aggrégation ou de fusion de données, et de nombreux modèles statistiques.
-
-
-## Génération d'un facteur
+## Séquence régulière d'entiers
 
 ```r
-> state <- sample(c("on", "off"), 20, rep = TRUE)
-> class(state)
-[1] "character"
-> head(state)
-[1] "off" "off" "on"  "off" "on"  "off"
-> state <- factor(state)
-> class(state)
-[1] "factor"
-> head(state)
-[1] off off on  off on  off
-Levels: off on
-> levels(state)
-[1] "off" "on"
-> nlevels(state)
-[1] 2
+c(1, 2, 3, 4, 5)
+1:10
+2:5
 ```
 
-## Propriétés des facteurs
-
-Un facteur R possède des niveaux (`levels=`) et des étiquettes (`labels=`) associées à chacun de ces niveaux. Le premier niveau est appelé niveau de référence.
+L'opérateur `:` repose en fait sur la fonction `seq()` :
 
 ```r
-> evt <- c(0,1)
-> y <- sample(evt, 10, rep = TRUE)
-> y
- [1] 1 1 1 0 1 1 0 0 1 0
-> factor(y, levels = 0:1, labels = c("non", "oui"))
- [1] oui oui oui non oui oui non non oui non
-Levels: non oui
+seq(1, 10)
+seq(1, 10, by = 2)
+seq(0, by = .1, length = 11)
 ```
 
-## Manipulation de chaînes de caractères
-
-La plupart des opérations habituelles sur les chaînes de caractères sont possibles sous R :
-
-- recherche de motif par regex
-- extraction de sous-chaînes
-- découpage selon le motif
-- remplacement de sous-chaînes
-
-Pour plus de souplesse : packages [stringr][stringr] et [stringi][stringi].
-
-[stringr]: http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf
-[stringi]: (http://cran.r-project.org/web/packages/stringi/index.html
-
-
-## Applications
+## Séquence et répétition
 
 ```r
-> a <- c("toto-24", "titi-13")
-> substr(a, 1, 4)
-[1] "toto" "titi"
-> strsplit(a, "-")
-[[1]]
-[1] "toto" "24"
-
-[[2]]
-[1] "titi" "13"
-> gsub("[1-9]*$", "", a)
-[1] "toto-" "titi-"
+x = c(1, 3, 5)
+seq(along = x)
 ```
-
-## Manipulation de dates
-
-Attention à la notation anglo-saxonne (ou localisation du système) : mm/dd/yyyy (vs. dd/mm/yyyy en français).
 
 ```r
-> d1 <- c("22/01/1998", "24/06/1999")
-> d2 <- as.POSIXct(d1, format = "%d/%m/%Y")
-> d2
-[1] "1998-01-22 CET"  "1999-06-24 CEST"
-> diff(d2)
-Time difference of 517.9583 days
+rep(x, 2)
+rep(x, each = 2)
 ```
 
-Pour plus de souplesse : package [lubridate][lubridate].
+## Permutation et tirage avec remise
 
-[lubridate]: http://vita.had.co.nz/papers/lubridate.html
+```r
+x = 1:10
+sample(x)
+```
+
+Tirage sans remise et combinaisons :
+```r
+sample(x, 3)
+combn(x, 3)
+```
+
+Tirage avec remise (bootstrap) :
+```r
+sample(c(0,1), 10, replace = TRUE)
+```
+
 
 # Objets structurés
 
@@ -351,27 +310,6 @@ List of 2
  $ beta : chr [1:3] "a" "b" "c"
 ```
 
-## Data frame
-
-Collection de valeurs de différents types, de même taille (restriction par rapport aux listes).
-
-```r
-x <- c(1,4,10,3,1)
-y <- letters[1:5]
-z <- data.frame(alpha = x, beta = y)
-```
-
-```r
-> str(z)
-'data.frame':	5 obs. of  2 variables:
- $ alpha: num  1 4 10 3 1
- $ beta : Factor w/ 5 levels "a","b","c","d",..: 1 2 3 4 5
-```
-
-## Illustration
-
-![Représentation schématique d'un data frame](../assets/img_dataframe.png)
-
 
 # Structures de contrôle et programmation R
 
@@ -381,16 +319,15 @@ z <- data.frame(alpha = x, beta = y)
 ```r
 test <- TRUE
 if (test) print("Hello") else print("Bye-bye")
-ifelse(test, "Hello", "Bye-bye")
 ```
 
-La dernière expression est vectorisée :
+La dernière expression (*) est vectorisée :
 
 ```r
 n <- 20
 x <- sample(letters[1:3], n, rep = TRUE)
 y <- sample(1:100, n)
-z <- ifelse(x == "a", 1, 0)
+z <- ifelse(x == "a", 1, 0)   ## (*)
 ```
 
 
@@ -411,7 +348,7 @@ cumsum(1:10)
 
 ## Commandes *apply
 
-Souvent, on peut exploiter les fonctions de la famille `*apply()` :
+Souvent, on peut exploiter les fonctions de la [famille `*apply()`][apply] :
 
 ```r
 val <- c(2, 8, 3, 4)
@@ -426,6 +363,8 @@ En plus simple :
 sapply(val, f)
 ```
 
+[apply]: https://stackoverflow.com/q/3505701
+
 ## Fonctions
 
 Comme dans d'autres langages de programmation, une fonction accepte des arguments.
@@ -437,7 +376,8 @@ Comme dans d'autres langages de programmation, une fonction accepte des argument
 
 ```r
 > args(sapply)
-function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+function (X, FUN, ..., simplify = TRUE,
+          USE.NAMES = TRUE)
 NULL
 ```
 
@@ -452,7 +392,8 @@ f(v)
 Ajout de paramètres avec valeur par défaut :
 
 ```r
-f <- function(x, na.rm = FALSE) mean(x, na.rm = na.rm)
+f <- function(x, na.rm = FALSE)
+  mean(x, na.rm = na.rm)
 v[sample(1:length(v), 5)] <- NA
 f(v)  ## na.rm = FALSE
 f(v, na.rm = TRUE)
