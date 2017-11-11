@@ -101,7 +101,7 @@ p + geom_histogram(binwidth = 5)  ## bins = 11
 
 ```r
 p = ggplot(data = survey, aes(x = Height))
-p + geom_density(adjust = 0.8)  ## (1)
+p + geom_density(adjust = 0.8)        ## (1)
 ```
 
 On peut également construire une courbe de densité explicitement à l'aide de `geom_line()`
@@ -134,6 +134,76 @@ $\hat b = 1.06\:\textrm{min}(\hat\sigma, \textrm{IQR}/1.34)\: n^{-1/5}$ la large
 
 # Paramètres avancés
 
+
+# Graphiques interactifs
+
+## ggvis
+
+<http://ggvis.rstudio.com>
+
+
+- basé sur [Vega][vega] (projets connexes @ [UW Interactive Data Lab][uwidl], e.g. @wongsuphasawat-2016-voyag)
+- intégration à RStudio ("Viewer")
+- fonctionnalités plus limitées que `ggplot2`
+
+
+[vega]: https://vega.github.io/vega/
+[uwidl]: https://idl.cs.washington.edu
+
+## Similarité avec ggplot
+
+chaînage des couches (`layer`) avec `+` *versus* `{dplyr} %>%` :
+
+```r
+ggplot(data = birthwt, aes(x = lwt, y = bwt)) +
+  geom_point() + 
+  geom_smooth(method = "auto")
+```
+
+```r
+ggvis(data = birthwt, ~ lwt, ~ bwt) %>% 
+  layer_points() %>% 
+  layer_smooths()
+```
+
+## Interactivité
+
+```r
+ggvis(data = birthwt, ~ lwt, ~ bwt) %>% 
+  layer_points(fill := "cornflowerblue") %>% 
+  layer_smooths(span = input_slider(0.5, 1.5, 
+                                    value = 1))
+```
+
+```r
+ggvis(data = survey, x = ~ Height) %>% 
+  layer_densities(adjust = input_slider(0.1, 2, 
+                                        value = 1, 
+                                        step = 0.1))
+```
+
+##  
+
+![Exemple de graphique interactif avec ggvis](../assets/img_ggvis.png)
+
+
+## plotly
+
+Basé sur [plotly.js][plotlyjs], le package `plotly` permet de construire des graphiques interactifs ou d'embarquer directement des graphiques ggplot. Il est également possible d'interagir directement avec le serveur <https://plot.ly>.
+
+```r
+library(plotly)
+p = ggplot(data = birthwt, aes(x = lwt, y = bwt)) +
+      geom_point() + 
+      geom_smooth(method = "auto")
+ggplotly(p)
+```
+
+[plotlyjs]: https://plot.ly/javascript/
+
+##  
+
+![Exemple de graphique interactif avec ggplotly](../assets/img_ggplotly.png)
 
 # Visualisation de données spatiales
 
