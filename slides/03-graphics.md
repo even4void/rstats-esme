@@ -403,7 +403,11 @@ ggplotly(p)
 
 ![Exemple de graphique interactif avec ggplotly](../assets/img_ggplotly.png)
 
+##  
 
+![](../assets/img_visualvocab.png)
+
+<http://ft.com/vocabulary>
 
 ## References {.allowframebreaks}
 
