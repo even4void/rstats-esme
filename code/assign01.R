@@ -1,4 +1,4 @@
-## Time-stamp: <2017-11-07 19:36:42 chl>
+## Time-stamp: <2017-11-14 14:45:53 chl>
 
 ##
 ## Placeholder for assignment #1.
@@ -30,7 +30,18 @@ for (i in 1:length(n)) {
 
 ## 3. Répéter l'expérience m = 1000 fois, avec n fixé à 100, et vérifier
 ## la distribution des proportions observées.
+n = 100   ## taille échantillon
+m = 1000  ## nb expériences
+r = numeric(m)
+
+for (i in 1:m) {
+  r[i] <- mean(foo(n))
+}
+
+hist(r, breaks = 15)
 
 
 ## 4a. Quel est le 1er événement positif pour une expérience ?
 ## 4b. En moyenne pour m = 1000 expériences ?
+x = foo(20)
+which(x == 1)[1]
