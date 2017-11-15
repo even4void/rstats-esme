@@ -1,4 +1,4 @@
-## Time-stamp: <2017-11-14 18:53:55 chl>
+## Time-stamp: <2017-11-15 16:32:44 chl>
 
 ##
 ## Placeholder for assignment #2.
@@ -35,5 +35,13 @@ p + theme_minimal()
 
 
 ## 3. Use of stat_smooth
-## Using the birthwt dataset, draw a facetted scatterplot (facet = race) and
-## display the same overall regression line in each facet.
+## Using the birthwt dataset, draw a facetted scatterplot (facet = race) of
+## bwt vs. lwt and display the same overall regression line in each facet.
+data(birthwt, package = "MASS")
+
+birthwt$race = factor(birthwt$race, labels = c("w", "b", "o"))
+birthwt$lwt = birthwt$lwt / 2.2  ## lbs -> kg
+
+p = ggplot(data = birthwt, aes(x = lwt, y = bwt, color = race))
+p = p + geom_point() + geom_smooth(method = "lm", se = FALSE, color = grey(.4))
+p + labs(x = "Mother weight (kg)", y = "Baby weight (g)") + theme_bw()
