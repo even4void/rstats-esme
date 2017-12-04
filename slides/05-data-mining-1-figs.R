@@ -1,4 +1,4 @@
-## Time-stamp: <2017-11-28 11:56:21 chl>
+## Time-stamp: <2017-12-04 11:57:16 chl>
 
 ## R script to manage figures in 05-data-mining-1.pdf
 
@@ -6,8 +6,12 @@ library(ggplot2)
 library(ggthemes)
 library(ggfortify)
 library(colorspace)
+library(viridis)
 library(gridExtra)
 library(mclust)
+library(arulesViz)
+library(recommenderlab)
+
 
 WD <- "~/git/rstats-esme/assets"
 setwd(WD)
@@ -80,3 +84,27 @@ autoplot(pca, data = w, colour = "Type", loadings = TRUE, loadings.colour = grey
   scale_color_manual(values = clr3) +
   guides(color = FALSE)
 psave("fig_pca-wine.png")
+
+
+
+data(Groceries)
+
+rules = apriori(Groceries, parameter = list(support = 0.001, confidence = 0.5))
+
+d = rules@quality
+
+ggplot(data = d, aes(x = support, y = confidence, color = lift)) +
+  geom_point() +
+  scale_color_viridis(direction = -1)
+
+psave("fig_arules-groceries.png")
+
+
+data(MovieLense)
+
+d <- getData.frame(MovieLense)
+
+r <- getRatings(normalize(MovieLense, method = "Z-score"))
+
+qplot(r, xlab = "Z-score", ylab = "Frequency")
+psave("fig_zscore-movielense.png")
