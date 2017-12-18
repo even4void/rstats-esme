@@ -1,0 +1,13 @@
+%% Temporary workaround for Beamer 3.45
+%% https://tex.stackexchange.com/questions/405112/beamer-section-numbers
+\setbeamertemplate{section page}{
+  \begingroup
+    \centering
+%    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\thesection}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+

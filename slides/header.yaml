@@ -11,4 +11,5 @@ bibliography: /Users/chl/Documents/Papers/references.bib
 csl: chicago-author-date.csl
 header-includes:
     - \usecolortheme[named=black]{structure}
+    - \input{beamerfix.tex}
 ---
