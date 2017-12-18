@@ -7,28 +7,29 @@ date: Fall 2017
 
 # Analyse de données textuelles
 
-## Text mining
+## Text mining [with R, @robinson-2017-text-minin]
 
-INTRO
+![<https://www.tidytextmining.com> ([Github](https://github.com/dgrtwo/tidy-text-mining))](../assets/img_tidytmbook.jpg)
+
 
 ## Flux de données Twitter
 
-TODO
+140 (x2 depuis Nov. 2017) caractères + hash tags
 
-- 140 caractères limite + hash tags
-- [analyse de sentiments][sentiment]
-- Packages R : `{twitteR}`, `{streamR}`, `{sentiment}` (depr.), `{qdap}`, `{quanteda}`, …
+Les données Twitter (plus généralement les médias sociaux) peuvent être utilisées dans un cadre de [recherche exploratoire][drob] ou dans un contexte médical [@dechoudhury-2013-predic-depres, @mcmanus-2015-minin-twitt]. Ces données servent généralement de point d'entrée à un modèle prédictif, mais il est également possible de prendre en compte la [dimension temporelle][rocketscience]. L'[analyse de sentiments][sentiment] ({positif, négatif, neutre}, {joy, sadness, fear, anger, ...}) est également largement répandue.
 
-Tutoriel : <https://sites.google.com/site/miningtwitter/references>.
+Packages R : `{twitteR}` avec [OAuth][oauth], `{streamR}`, `{syuzhet}`, `{sentiment}` (depr.), `{sentimentr}`, `{qdap}`, `{quanteda}`, …  
+Tutoriels : <https://sites.google.com/site/miningtwitter/references>.
 
-L'utilisation nécessite une [autentification (OAuth)](http://thinktostart.com/twitter-authentification-with-r/).
-
+[oauth]: http://thinktostart.com/twitter-authentification-with-r/
+[drob]: http://varianceexplained.org/r/trump-tweets/
+[rocketscience]: https://justrocketscience.com/post/pewdiepie-sentiment
 [sentiment]: https://www.csc.ncsu.edu/faculty/healey/tweet_viz/tweet_app/
 
 ## Illustration
 
 ```r
-library(twitteR)
+library(twitteR)  ## cf. setup_twitter_oauth()
 library(stringr)
 tw = userTimeline("chlalanne", n = 1000)
 find.tag = function(x) 
@@ -69,8 +70,8 @@ Note : Le package `snippets` n'est plus disponible sur CRAN mais peut être inst
 ```
 % sqlite enron.db
 sqlite> .tables
-Employee          EmployeeWithVars  MessageBase       RecipientBase
-EmployeeBase      Message           Recipient
+Employee      EmployeeWithVars  MessageBase RecipientBase
+EmployeeBase  Message           Recipient
 sqlite> .schema Message
 CREATE VIEW Message AS
 SELECT
@@ -88,26 +89,42 @@ FROM
 
 ```
 sqlite> select * from Message limit 5;
-1|taylor-m/sent/11|1998-11-13 04:07:00|910930020|Cd$ CME letter|138
-2|taylor-m/sent/17|1998-11-19 07:19:00|911459940|Indemnification|138
-3|taylor-m/sent/18|1998-11-19 08:24:00|911463840|Re: Indemnification|138
+1|taylor-m/sent/11|1998-11-13 04:07:00|910930020| …
+2|taylor-m/sent/17|1998-11-19 07:19:00|911459940| …
+3|taylor-m/sent/18|1998-11-19 08:24:00|911463840| …
 ```
 
 Importation de la base de données sous R : 
 
 ```r
 library(dplyr)
-con <- src_sqlite("enron.db")
-d <- tbl(con, "Message")
+con = src_sqlite("enron.db")
+d = tbl(con, "Message")
 head(d, 3)
 ```
+
+Tutoriel dplyr/SQL : [MySQL and R Webinar][dbidplyr].
+
+[dbidplyr]: https://beanumber.github.io/mysql-r-webinar/index.html
+
 
 ## "Lazy" operation
 
 ```r
-y <- mutate(d, year = substr(time, 1, 4))
-collect(y)
+y = mutate(d, year = substr(time, 1, 4))
+## collect(y)
 head(y, 3)
+```
+
+Dans la mesure du possible, `dplyr` "traduit" le code R en code SQL.
+
+```r
+> show_query(select(y, year))
+<SQL>
+SELECT `year` AS `year`
+FROM (SELECT `mid`, `filename`, `time`, `unix_time`, 
+  `subject`, `from_eid`, substr(`time`, 1, 4) AS `year`
+FROM `Message`)
 ```
 
 ```r
@@ -115,6 +132,7 @@ head(y, 3)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
    1998    2001    2001    2001    2001    2002
 ```
+
 
 
 # Détection de spam
@@ -129,11 +147,13 @@ head(y, 3)
 - `spam_names.txt`
 
         if (george < 0.6) and (you > 1.5) then spam
-          else email
+        else email
+
 
 ##  
 
 ![Source : [NLTK](http://www.nltk.org) documentation](../assets/img_classifier.png)
+
 
 ## Classifier naïf bayésien
 
@@ -150,7 +170,12 @@ train.ind = sample(1:nrow(spam), ceiling(nrow(spam)*2/3))
 nb.res = NaiveBayes(spam ~ ., data = spam[train.ind,])
 ```
 
-##  
+## Rappels sur la validation croisée
+
+![Validation croisée de type "k-fold" (Source : <https://genome.tugraz.at/proclassify/help/pages/XV.html>)](../assets/img_5fold.png)
+
+
+## Résultats
 
 ```r
 > # predict on holdout units
