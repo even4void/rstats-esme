@@ -24,7 +24,7 @@ Here is a temptative schedule, but see the [course overview][overview]:
 6. Dec, 12: Reporting with R Markdown and Shiny
 7. Dec, 19: Final project
 
-All session will run for 3 hours, including a 1-hour hand-on practical. Solutions will be available in the [code][code] folder. Additional lectures are listed below.
+Each session will run for 3 hours, including a 1-hour hand-on practical. Solutions will be available in the [code][code] folder. Additional lectures are listed below.
 
 - Nov, 14-15: ISLR §2.1 and R4DS §3 and §7
 - Nov, 28: ISLR §10.2-10.3 and R4DS §13
@@ -45,7 +45,18 @@ ISLR = [Introduction to Statistical Learning][islr]
 - a decent text editor (Emacs, Vi(m), Sublime, Atom, VS Code)
 - [Git][git]
 
-
 [cran]: http://cran.r-project.org
 [rstudio]: http://rstudio.com
 [git]: https://git-scm.com
+
+## Final assessment
+
+In addition to the two practicals, there is a final evaluation.
+
+### Project (3CI)
+
+The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. The dataset and detailed instructions will be uploaded soon.
+
+### Exam (3CB)
+
+The on-site assessment will last 2 hours. You are allowed to use any document, including the slides and PDFs listed on this page. The exam will consist in a series of questions including: review of R code, small numerical applications (no calculator required), and general questions about the content of the course itself as well as R4DS and ISLR textbooks, and chapters recommended for the "data mining" slides (5 & 6).
