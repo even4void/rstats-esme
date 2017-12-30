@@ -55,7 +55,9 @@ In addition to the two practicals, there is a final evaluation.
 
 ### Project (3CI)
 
-The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. The dataset and detailed instructions will be uploaded soon.
+The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. The dataset and detailed instructions are available on the [project page][project].
+
+[project]: https://bitbucket.org/chlalanne/rstats-esme/src/master/project.md
 
 ### Exam (3CB)
 
