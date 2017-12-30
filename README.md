@@ -14,15 +14,15 @@ You can clone this repository on your personal computer using, e.g.:
 
 ## Syllabus
 
-Here is a temptative schedule, but see the [course overview][overview]:
+Here is the updated schedule, but see the [course overview][overview]:
 
 1. Nov, 7: R basics
 2. Nov, 14: Graphics with `ggplot2`
 3. Nov, 15*: R dplyr and data.table 
-4. Nov, 28: R and database, data mining
-5. Dec, 5: Statistical modeling in R
-6. Dec, 12: Reporting with R Markdown and Shiny
-7. Dec, 19: Final project
+4. Nov, 28: Data Mining Part 1 + Practical 1
+5. Dec, 5: Data Mining Part 1 (Con't)
+6. Dec, 12: Cancelled
+7. Dec, 19: Data Mining Part 2 + Practical 2
 
 Each session will run for 3 hours, including a 1-hour hand-on practical. Solutions will be available in the [code][code] folder. Additional lectures are listed below.
 
@@ -55,7 +55,7 @@ In addition to the two practicals, there is a final evaluation.
 
 ### Project (3CI)
 
-The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. The dataset and detailed instructions are available on the [project page][project].
+The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. Detailed instructions are available on the [project page][project].
 
 [project]: https://bitbucket.org/chlalanne/rstats-esme/src/master/project.md
 
