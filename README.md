@@ -6,14 +6,14 @@ This repository included various pieces of R code and Markdown documents that wi
 
 You can clone this repository on your personal computer using, e.g.:
 
-    git clone https://chlalanne@bitbucket.org/chlalanne/rstats-esme.git
+    git clone https://github.com/even4void/rstats-esme.git
 
-[slides]: https://bitbucket.org/chlalanne/rstats-esme/src/master/slides
-[code]: https://bitbucket.org/chlalanne/rstats-esme/src/master/code
+[slides]: https://github.com/even4void/rstats-esme/src/master/slides
+[code]: https://github.com/even4void/rstats-esme/src/master/code
 [pandoc]: https://pandoc.org
 
 ## Syllabus
-
+ 
 Here is the updated schedule, but see the [course overview][overview]:
 
 1. Nov, 7: R basics
@@ -37,7 +37,7 @@ ISLR = [Introduction to Statistical Learning][islr]
 
 [r4ds]: http://r4ds.had.co.nz
 [islr]: http://www-bcf.usc.edu/~gareth/ISL/
-[overview]: https://bitbucket.org/chlalanne/rstats-esme/src/master/slides/01-intro.md
+[overview]: https://github.com/even4void/rstats-esme/src/master/slides/01-intro.md
 
 ## Software
 
@@ -50,15 +50,15 @@ ISLR = [Introduction to Statistical Learning][islr]
 [git]: https://git-scm.com
 
 ## Final assessment
-
+ 
 In addition to the two practicals, there is a final evaluation.
 
 ### Project (3CI)
 
 The project will consist in developing a recommender system based on a small to moderate dataset. You will have to compute custom numerical weights based either on text-based user review or numerical ratings, then apply an UCBF evaluation scheme and assess the predictive ability of the model. Detailed instructions are available on the [project page][project].
 
-[project]: https://bitbucket.org/chlalanne/rstats-esme/src/master/project.md
-
+[project]: https://github.com/even4void/rstats-esme/src/master/project.md
+ 
 ### Exam (3CB)
-
+ 
 The on-site assessment will last 2 hours. You are allowed to use any document, including the slides and PDFs listed on this page. The exam will consist in a series of questions including: review of R code, small numerical applications (no calculator required), and general questions about the content of the course itself as well as R4DS and ISLR textbooks, and chapters recommended for the "data mining" slides (5 & 6).
